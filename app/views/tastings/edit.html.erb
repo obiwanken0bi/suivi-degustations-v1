@@ -1,0 +1,11 @@
+<%= simple_form_for(tasting) do |f| %>
+  <%= f.input :category, collection: ["Bière", "Vin"] %>
+  <%= f.input :type %>
+  <%= f.input :name %>
+  <%= f.input :producer %>
+  <%= f.input :alcohol %>
+  <%= f.input :price %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>
