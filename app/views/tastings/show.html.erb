@@ -1,8 +1,10 @@
 <p><%= @tasting.category %></p>
-<p><%= @tasting.type %></p>
+<p><%= @tasting.style %></p>
 <p><%= @tasting.name %></p>
 <p><%= @tasting.producer %></p>
 <p><%= @tasting.alcohol %>%</p>
 <p><%= @tasting.price %>€</p>
 <p><%= @tasting.rating %>/10</p>
 <p><%= @tasting.comment %></p>
+
+<%= link_to 'Edit', edit_user_tasting_path %>
