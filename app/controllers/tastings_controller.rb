@@ -36,7 +36,7 @@ class TastingsController < ApplicationController
   def destroy
     @tasting.destroy
 
-    redirect_to user_tastings_path
+    redirect_to root_path
   end
 
   private

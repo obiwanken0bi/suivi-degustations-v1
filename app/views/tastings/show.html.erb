@@ -8,3 +8,7 @@
 <p><%= @tasting.comment %></p>
 
 <%= link_to 'Edit', edit_user_tasting_path %>
+<%= link_to "Remove",
+                  user_tasting_path(@tasting),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>

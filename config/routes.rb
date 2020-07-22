@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
-    resources :tastings
+    resources :tastings#, only: [ :index, :new, :create ]
   end
+  # resources :tastings, only: [ :show, :edit, :update, :destroy ]
 end
