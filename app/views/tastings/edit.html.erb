@@ -1,12 +1,17 @@
-<%= simple_form_for [ @user, @tasting ] do |f| %>
-  <%= f.input :category, collection: ["Bière", "Vin"], label: "Vin ou bière ?" %>
-  <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire", "Rouge", "Blanc", "Rosé"], label: "Couleur" %>
-  <%= f.input :name, label: "Nom" %>
-  <%= f.input :producer, label: "Château / brasserie" %>
-  <%= f.input :alcohol, label: "Degré d'alcool" %>
-  <%= f.input :price, label: "Prix" %>
-  <%= f.input :rating, label: "Note sur 10" %>
-  <%= f.input :comment, label: "Commentaire" %>
-  <%= f.submit "Modifier la dégustation" %>
-  <%= link_to "Annuler", user_tasting_path(@user, @tasting) %>
-<% end %>
+<div class="col-6 mx-auto my-4">
+  <h2 class="text-center mb-3">Modifier la dégustation</h2>
+  <%= simple_form_for [ @user, @tasting ] do |f| %>
+    <%= f.input :category, collection: ["Bière", "Vin"], label: "Vin ou bière ?" %>
+    <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire", "Rouge", "Blanc", "Rosé"], label: "Couleur" %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :producer, label: "Château / brasserie" %>
+    <%= f.input :alcohol, label: "Degré d'alcool" %>
+    <%= f.input :price, label: "Prix" %>
+    <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
+    <%= f.input :comment, label: "Commentaire" %>
+    <div class="d-flex justify-content-center">
+      <%= f.submit "Modifier la dégustation", class: "btn btn-primary mb-2" %>
+    </div>
+    <p class="text-center"><%= link_to "Annuler", user_tasting_path(@user, @tasting) %></p>
+  <% end %>
+</div>
