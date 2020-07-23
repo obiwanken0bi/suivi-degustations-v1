@@ -15,8 +15,9 @@
 <p>Note : <%= @tasting.rating %>/10</p>
 <p>Commentaire : <%= @tasting.comment %></p>
 
-<%= link_to 'Edit', edit_user_tasting_path %>
-<%= link_to "Remove",
+<%= link_to 'Modifier', edit_user_tasting_path %> | 
+<%= link_to "Supprimer",
                   user_tasting_path(@tasting),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+                  data: { confirm: "Êtes-vous sûr(e) ?" } %> | 
+<%= link_to "Tableau de bord", root_path %>
