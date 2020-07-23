@@ -1,23 +1,38 @@
-<% if @tasting.category == "Bière"%>
-  <h2>Bière dégustée le <%= @tasting.created_at.strftime("%d/%m/%Y") %></h2>
+<div class="row my-4 tasting-details mx-auto">
+  <div class="photo">
+    <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F18%2Fd2%2F35%2F18d235ba3af51b501492de64cd4c35bf.jpg&f=1&nofb=1" %>
+  </div>
 
-  <p>Brasserie : <%= @tasting.producer %></p>
-<% else %>
-  <h2>Vin dégusté le <%= @tasting.created_at.strftime("%d/%m/%Y") %></h2>
+  <div class="tasting-description ml-5">
+    <h2 class="mb-3"><strong><%= @tasting.name %></strong></h2>
+    <h3 class="mb-3">Brasserie : <%= @tasting.producer %></h3>
+    <p>Type : <%= @tasting.color %></p>
 
-  <p>Château : <%= @tasting.producer %></p>
-<% end %>
+    <% if @tasting.category == "Bière"%>
+      <p>IPA ? Sour ? Season ? : </p>
+      <p>IBU : </p>
+    <% else %>
+      <p>Sec ? Moelleux ? Liquoreux ? : </p>
+      <p>Millésime : </p>
+    <% end %>
 
-<p><%= @tasting.name %></p>
-<p>Type : <%= @tasting.category %> <%= @tasting.color %></p>
-<p>Alcool : <%= @tasting.alcohol %>%</p>
-<p>Prix : <%= @tasting.price %>€</p>
-<p>Note : <%= @tasting.rating %>/10</p>
-<p>Commentaire : <%= @tasting.comment %></p>
+    <p>Degré d'alcool : <%= @tasting.alcohol %>%</p>
+    <p>Prix : <%= @tasting.price %>€</p>
+    <p>Dégustation : <%= @tasting.created_at.strftime("%d/%m/%Y") %></p>
+    <h3><strong>Note : <%= @tasting.rating %>/10</strong></h3>
+  </div>
+</div>
 
-<%= link_to 'Modifier', edit_user_tasting_path %> | 
-<%= link_to "Supprimer",
-                  user_tasting_path(@tasting),
-                  method: :delete,
-                  data: { confirm: "Êtes-vous sûr(e) ?" } %> | 
-<%= link_to "Tableau de bord", root_path %>
+<div class="col-8 mx-auto mt-4 text-center">
+  <h3>Commentaire : </h3>
+  <p><%= @tasting.comment %></p>
+
+  <div class="tasting-links mt-4">
+    <%= link_to 'Modifier', edit_user_tasting_path %> | 
+    <%= link_to "Supprimer",
+                      user_tasting_path(@tasting),
+                      method: :delete,
+                      data: { confirm: "Êtes-vous sûr(e) ?" } %> | 
+    <%= link_to "Tableau de bord", root_path %>
+  </div>
+</div>
