@@ -1,18 +1,20 @@
-<h2>Forgot your password?</h2>
+<div class="col-6 mx-auto my-4">
+  <h2 class="text-center mb-3">Mot de passe oublié ?</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Envoyez-moi un mail de réinitialisation de mot de passe" %>
-  </div>
-<% end %>
+    <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, "Envoyez-moi un mail de réinitialisation de mot de passe", class: "btn btn-primary mb-2" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <p class="text-center mt-4">Votre mot de passe vous est revenu(e) ? <%= render "devise/shared/links" %></p>
+</div>
