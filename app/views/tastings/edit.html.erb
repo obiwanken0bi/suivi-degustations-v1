@@ -1,6 +1,6 @@
 <%= simple_form_for [ @user, @tasting ] do |f| %>
   <%= f.input :category, collection: ["Bière", "Vin"] %>
-  <%= f.input :style, collection: ["Blonde", "Rousse"] %>
+  <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire", "Rouge", "Blanc", "Rosé"] %>
   <%= f.input :name %>
   <%= f.input :producer %>
   <%= f.input :alcohol %>
