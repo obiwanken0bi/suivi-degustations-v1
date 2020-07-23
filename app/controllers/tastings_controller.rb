@@ -50,6 +50,6 @@ class TastingsController < ApplicationController
   end
 
   def tasting_params
-    params.require(:tasting).permit(:category, :name, :producer, :style, :alcohol, :price, :rating, :comment)
+    params.require(:tasting).permit(:category, :name, :producer, :color, :alcohol, :price, :rating, :comment)
   end
 end
