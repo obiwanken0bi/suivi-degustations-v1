@@ -5,21 +5,34 @@
 
   <div class="tasting-description ml-5">
     <h2 class="mb-3"><strong><%= @tasting.name %></strong></h2>
-    <h3 class="mb-3">Brasserie : <%= @tasting.producer %></h3>
-    <p>Type : <%= @tasting.color %></p>
 
     <% if @tasting.category == "Bière"%>
-      <p>IPA ? Sour ? Season ? : </p>
+      <h3 class="mb-3">Brasseur : <%= @tasting.producer %></h3>
+      <p>Couleur : <%= @tasting.color %></p>
+      <p>Style (IPA, Sour, Bitter,...) : </p>
+      <p>Malts :</p>
+      <p>Houblons : </p>
       <p>IBU : </p>
     <% else %>
-      <p>Sec ? Moelleux ? Liquoreux ? : </p>
+      <h3 class="mb-3">Producteur : <%= @tasting.producer %></h3>
+      <p>Couleur : <%= @tasting.color %></p>
+      <p>Appellation : </p>
+      <p>Cépages : </p>
       <p>Millésime : </p>
     <% end %>
 
-    <p>Degré d'alcool : <%= @tasting.alcohol %>%</p>
+    <p>Alcool : <%= @tasting.alcohol %>%</p>
     <p>Prix : <%= @tasting.price %>€</p>
     <p>Dégustation : <%= @tasting.created_at.strftime("%d/%m/%Y") %></p>
-    <h3><strong>Note : <%= @tasting.rating %>/10</strong></h3>
+    <div class="d-flex tasting-rating">
+      <h3 class="mb-0 mr-2"><strong>Note :</strong></h3>
+      <% @tasting.rating.times do %>
+        <i class="fas fa-star my-auto"></i>
+      <% end %>
+      <% (10 - @tasting.rating).times do %>
+        <i class="far fa-star my-auto"></i>
+      <% end %>
+    </div>
   </div>
 </div>
 
