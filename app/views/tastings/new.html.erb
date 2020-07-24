@@ -2,16 +2,60 @@
   <h2 class="text-center mb-3">Ajouter une dégustation</h2>
 
   <%= simple_form_for [ @user, @tasting ] do |f| %>
+    <%= f.input :category, as: :radio_buttons, collection: ["Bière", "Vin"], label: "Vin ou bière ?" %>
+
+    <%# if @tasting.category == "Bière" %>
+      <%#= f.input :name, label: "Nom" %>
+    <%# else %>
+      <%#= f.input :producer, label: "Producteur" %>
+    <%# end %>
+
+    <hr>
+    
+    <h3>Bière</h3>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :producer, label: "Brasseur" %>
     <div class="d-flex">
       <div class="col-6 pl-0">
-        <%= f.input :category, collection: ["Bière", "Vin"], label: "Vin ou bière ?" %>
+        <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire"], label: "Couleur" %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire", "Rouge", "Blanc", "Rosé"], label: "Couleur" %>
+        <%= f.input :color, label: "Style (IPA, Stout, Trappiste...)" %>
       </div>
     </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :color, label: "Malts" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :color, label: "Houblons" %>
+      </div>
+    </div>
+
+    <hr>
+
+    <h3>Vin</h3>
     <%= f.input :name, label: "Nom" %>
     <%= f.input :producer, label: "Producteur" %>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"], label: "Couleur" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :color, label: "Millésime" %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :color, label: "Appellation" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :color, label: "Cépages" %>
+      </div>
+    </div>
+
+    <hr>
+
     <div class="d-flex">
       <div class="col-6 pl-0">
         <%= f.input :alcohol, label: "Degré d'alcool" %>
