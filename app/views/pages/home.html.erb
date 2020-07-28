@@ -13,7 +13,7 @@
       <% current_user.beer_tastings.each do |tasting| %>
         <div>
           <%= link_to user_beer_tasting_path(:user_id, tasting) do %>
-            [<%= tasting.date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
+            [<%= tasting.tasting_date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
           <% end %>
         </div>
       <% end %>
@@ -26,7 +26,7 @@
       <% current_user.wine_tastings.each do |tasting| %>
         <div>
           <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
-            [<%= tasting.date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
+            [<%= tasting.tasting_date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
           <% end %>
         </div>
       <% end %>
