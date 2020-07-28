@@ -1,0 +1,2 @@
+class WineTastingsController < ApplicationController
+end

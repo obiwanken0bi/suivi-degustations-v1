@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :tastings#, only: [ :index, :new, :create ]
+    resources :beer_tastings
+    resources :wine_tastings
   end
   # resources :tastings, only: [ :show, :edit, :update, :destroy ]
 end
