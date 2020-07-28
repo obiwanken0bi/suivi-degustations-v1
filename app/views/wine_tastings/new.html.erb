@@ -28,6 +28,9 @@
         <%= f.input :price, label: "Prix" %>
       </div>
     </div>
+    <%= f.input :tasting_date, as: :date,
+                              html5: true,
+                              label: "Date de dégustation" %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
     <%= f.input :comment, label: "Commentaire" %>
     <div class="d-flex justify-content-center">
