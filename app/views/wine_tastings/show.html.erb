@@ -1,0 +1,40 @@
+<div class="row my-4 tasting-details mx-auto">
+  <div class="photo">
+    <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F18%2Fd2%2F35%2F18d235ba3af51b501492de64cd4c35bf.jpg&f=1&nofb=1" %>
+  </div>
+
+  <div class="tasting-description ml-5">
+    <h2 class="mb-3"><strong><%= @wine_tasting.name %></strong></h2>
+    <h3 class="mb-3">Producteur : <%= @wine_tasting.producer %></h3>
+    <p>Couleur : <%= @wine_tasting.color %></p>
+    <p>Millésime : <%= @wine_tasting.vintage %></p>
+    <p>Appellation : <%= @wine_tasting.label %></p>
+    <p>Cépages : <%= @wine_tasting.grape_variety %></p>
+    <p>Alcool : <%= @wine_tasting.alcohol %>%</p>
+    <p>Prix : <%= @wine_tasting.price %>€</p>
+    <p>Dégustation : <%= @wine_tasting.date %></p>
+    <div class="d-flex tasting-rating">
+      <h3 class="mb-0 mr-2"><strong>Note :</strong></h3>
+      <% @wine_tasting.rating.times do %>
+        <i class="fas fa-star my-auto"></i>
+      <% end %>
+      <% (10 - @wine_tasting.rating).times do %>
+        <i class="far fa-star my-auto"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-8 mx-auto mt-4 text-center">
+  <h3>Commentaire : </h3>
+  <p><%= @wine_tasting.comment %></p>
+
+  <div class="tasting-links mt-4">
+    <%= link_to 'Modifier', edit_user_wine_tasting_path %> | 
+    <%= link_to "Supprimer",
+                      user_wine_tasting_path(@wine_tasting),
+                      method: :delete,
+                      data: { confirm: "Êtes-vous sûr(e) ?" } %> | 
+    <%= link_to "Tableau de bord", root_path %>
+  </div>
+</div>
