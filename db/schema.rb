@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_090525) do
+ActiveRecord::Schema.define(version: 2020_07_28_152452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beer_tastings", force: :cascade do |t|
+    t.string "name"
+    t.string "producer"
+    t.string "color"
+    t.string "type"
+    t.string "malts"
+    t.string "hops"
+    t.decimal "alcohol"
+    t.decimal "price"
+    t.date "tasting_date"
+    t.integer "rating"
+    t.text "comment"
+    t.string "photo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_beer_tastings_on_user_id"
+  end
 
   create_table "tastings", force: :cascade do |t|
     t.string "category"
@@ -43,5 +62,26 @@ ActiveRecord::Schema.define(version: 2020_07_23_090525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wine_tastings", force: :cascade do |t|
+    t.string "name"
+    t.string "producer"
+    t.string "color"
+    t.integer "vintage"
+    t.string "label"
+    t.string "grape_variety"
+    t.decimal "alcohol"
+    t.decimal "price"
+    t.date "tasting_date"
+    t.integer "rating"
+    t.text "comment"
+    t.string "photo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wine_tastings_on_user_id"
+  end
+
+  add_foreign_key "beer_tastings", "users"
   add_foreign_key "tastings", "users"
+  add_foreign_key "wine_tastings", "users"
 end
