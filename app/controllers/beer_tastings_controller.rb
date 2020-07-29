@@ -50,6 +50,6 @@ class BeerTastingsController < ApplicationController
   end
 
   def beer_tasting_params
-    params.require(:beer_tasting).permit(:name, :producer, :color, :type, :malts, :hops, :alcohol, :price, :tasting_date, :rating, :comment, :photo)
+    params.require(:beer_tasting).permit(:name, :producer, :color, :family, :malts, :hops, :alcohol, :price, :tasting_date, :rating, :comment, :photo)
   end
 end
