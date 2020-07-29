@@ -14,7 +14,10 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Nouvelle dégustation", new_user_tasting_path(:user_id), class: "nav-link" %>
+            <%= link_to "Nouvelle bière", new_user_beer_tasting_path(:user_id), class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Nouveau vin", new_user_wine_tasting_path(:user_id), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown ml-2">
             <%= image_tag "https://www.shareicon.net/data/128x128/2016/11/21/854790_kenobi_512x512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

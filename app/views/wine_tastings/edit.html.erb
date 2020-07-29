@@ -1,0 +1,41 @@
+<div class="col-6 mx-auto my-4">
+  <h2 class="text-center mb-3">Modifier la dégustation</h2>
+
+  <%= simple_form_for [ @user, @wine_tasting ] do |f| %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :producer, label: "Producteur" %>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"], label: "Couleur" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :vintage, label: "Millésime" %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :label, label: "Appellation" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :grape_variety, label: "Cépages" %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :alcohol, label: "Degré d'alcool" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :price, label: "Prix" %>
+      </div>
+    </div>
+    <%= f.input :tasting_date, as: :date,
+                              html5: true,
+                              label: "Date de dégustation" %>
+    <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
+    <%= f.input :comment, label: "Commentaire" %>
+    <div class="d-flex justify-content-center">
+      <%= f.submit "Modifier la dégustation", class: "btn btn-primary mb-2" %>
+    </div>
+    <p class="text-center"><%= link_to "Annuler", user_wine_tasting_path(@user, @wine_tasting) %></p>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<div class="col-6 mx-auto my-4">
+  <h2 class="text-center mb-3">Ajouter une dégustation de bière</h2>
+
+  <%= simple_form_for [ @user, @beer_tasting ] do |f| %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :producer, label: "Brasseur" %>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire"], label: "Couleur" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :type, label: "Style (IPA, Stout, Trappiste...)" %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :malts, label: "Malts" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :hops, label: "Houblons" %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :alcohol, label: "Degré d'alcool" %>
+      </div>
+      <div class="col-6 pr-0">
+        <%= f.input :price, label: "Prix" %>
+      </div>
+    </div>
+    <%= f.input :tasting_date, as: :date,
+                              html5: true,
+                              label: "Date de dégustation" %>
+    <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
+    <%= f.input :comment, label: "Commentaire" %>
+    <div class="d-flex justify-content-center">
+      <%= f.submit "Ajouter la dégustation", class: "btn btn-primary mb-2" %>
+    </div>
+    <p class="text-center"><%= link_to "Annuler", root_path %></p>
+  <% end %>
+</div>

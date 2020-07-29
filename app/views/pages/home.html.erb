@@ -4,16 +4,16 @@
 
 <% if user_signed_in? %>
 
-  <h3 class="text-center mb-5">Nombre total de dégustations : <%= current_user.tastings.count %></h3>
+  <h3 class="text-center mb-5">Nombre total de dégustations : <%= (current_user.beer_tastings.count) + (current_user.wine_tastings.count) %></h3>
 
   <div class="last-tastings d-flex">
     <div class="last-beers col-6">
-      <h4><i class="fas fa-beer"></i> Bières dégustées : <%= current_user.tastings.where(category: "Bière").count %></h4>
+      <h4><i class="fas fa-beer"></i> Bières dégustées : <%= current_user.beer_tastings.count %></h4>
 
-      <% current_user.tastings.where(category: "Bière").each do |tasting| %>
+      <% current_user.beer_tastings.each do |tasting| %>
         <div>
-          <%= link_to user_tasting_path(:user_id, tasting) do %>
-            [<%= tasting.created_at.strftime("%d/%m/%y") %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
+          <%= link_to user_beer_tasting_path(:user_id, tasting) do %>
+            [<%= tasting.tasting_date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
           <% end %>
         </div>
       <% end %>
@@ -21,12 +21,12 @@
     </div>
     
     <div class="last-wines col-6">
-      <h4><i class="fas fa-wine-glass-alt"></i> Vins dégustés : <%= current_user.tastings.where(category: "Vin").count %></h4>
+      <h4><i class="fas fa-wine-glass-alt"></i> Vins dégustés : <%= current_user.wine_tastings.count %></h4>
 
-      <% current_user.tastings.where(category: "Vin").each do |tasting| %>
+      <% current_user.wine_tastings.each do |tasting| %>
         <div>
-          <%= link_to user_tasting_path(:user_id, tasting) do %>
-            [<%= tasting.created_at.strftime("%d/%m/%y") %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
+          <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
+            [<%= tasting.tasting_date %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
           <% end %>
         </div>
       <% end %>
