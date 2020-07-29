@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(254, 217, 37);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,16 +9,34 @@
   .dropdown-toggle:hover {
     cursor: pointer;
   }
+
+  .dropdown-toggle:after {
+    content: none;
+  }
+
+  .nav-button p {
+    // font-family: 'Ranchers', cursive;
+    font-family: 'Bevan', cursive;
+    // font-family: 'Lobster', cursive;
+    font-size: 0.8em;
+  }
+
+  .nav-button i {
+    font-size: 1.3em;
+  }
 }
 
 .navbar-lewagon .navbar-brand {
   padding: 0;
 
   img {
-    height: 40px;
+    height: 50px;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    // font-family: 'Ranchers', cursive;
+    font-family: 'Bevan', cursive;
+    // font-family: 'Lobster', cursive;
   }
 }
