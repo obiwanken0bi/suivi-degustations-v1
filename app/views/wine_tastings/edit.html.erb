@@ -9,15 +9,16 @@
         <%= f.input :color, collection: ["Rouge", "Blanc", "Rosé"], label: "Couleur" %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :vintage, label: "Millésime" %>
+        <%= f.input :vintage, collection: ((Date.today.year - 150)..(Date.today.year)).to_a.reverse,
+                              label: "Millésime" %>
       </div>
     </div>
     <div class="d-flex">
       <div class="col-6 pl-0">
-        <%= f.input :label, label: "Appellation" %>
+        <%= f.input :label, label: "Appellation", placeholder: "Pessac-Léognan, Muscadet,..." %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :grape_variety, label: "Cépages" %>
+        <%= f.input :grape_variety, label: "Cépages", placeholder: "Merlot 15%, Riesling 100%,..." %>
       </div>
     </div>
     <div class="d-flex">
@@ -30,6 +31,7 @@
     </div>
     <%= f.input :tasting_date, as: :date,
                               html5: true,
+                              # input_html: Date.today,
                               label: "Date de dégustation" %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
     <%= f.input :comment, label: "Commentaire" %>

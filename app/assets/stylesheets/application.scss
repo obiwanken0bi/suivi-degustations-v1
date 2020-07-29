@@ -15,3 +15,28 @@
 .tasting-details .photo img {
   height: 400px;
 }
+
+// New beer/wine Forms
+#new_beer_tasting input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 0.5;
+}
+
+#new_beer_tasting input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  opacity: 0.5;
+}
+
+#new_beer_tasting input::-ms-input-placeholder { /* Microsoft Edge */
+  opacity: 0.5;
+}
+
+#new_wine_tasting input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 0.5;
+}
+
+#new_wine_tasting input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  opacity: 0.5;
+}
+
+#new_wine_tasting input::-ms-input-placeholder { /* Microsoft Edge */
+  opacity: 0.5;
+}
