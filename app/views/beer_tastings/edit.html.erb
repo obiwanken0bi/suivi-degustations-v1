@@ -9,15 +9,15 @@
         <%= f.input :color, collection: ["Blonde", "Blanche", "Ambrée/Rousse", "Brune", "Noire"], label: "Couleur" %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :family, label: "Style (IPA, Stout, Trappiste...)" %>
+        <%= f.input :family, label: "Style", placeholder: "IPA, Stout, Trappiste..." %>
       </div>
     </div>
     <div class="d-flex">
       <div class="col-6 pl-0">
-        <%= f.input :malts, label: "Malts" %>
+        <%= f.input :malts, label: "Malts", placeholder: "Blé, Maris Otter, Vienna,..." %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :hops, label: "Houblons" %>
+        <%= f.input :hops, label: "Houblons", placeholder: "Cascade, Chinook,..." %>
       </div>
     </div>
     <div class="d-flex">
@@ -30,6 +30,7 @@
     </div>
     <%= f.input :tasting_date, as: :date,
                               html5: true,
+                              # input_html: Date.today,
                               label: "Date de dégustation" %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
     <%= f.input :comment, label: "Commentaire" %>
