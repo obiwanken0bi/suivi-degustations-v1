@@ -30,6 +30,7 @@
     </div>
     <%= f.input :tasting_date, as: :date,
                               html5: true,
+                              hint: "(mm/jj/aaaa)",
                               input_html: { value: Date.today },
                               label: "Date de dégustation" %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
