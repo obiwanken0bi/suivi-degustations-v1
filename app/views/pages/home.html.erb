@@ -7,7 +7,7 @@
   <h3 class="text-center mb-5">Dégustations : <%= (current_user.beer_tastings.count) + (current_user.wine_tastings.count) %></h3>
 
   <div class="last-tastings d-flex">
-    <div class="col-6 text-center">
+    <div class="col-6 text-center px-4">
       <h4 class="mb-4"><i class="fas fa-beer"></i> Bières dégustées : <%= current_user.beer_tastings.count %></h4>
 
       <% if current_user.beer_tastings.count == 0 %>
@@ -17,7 +17,7 @@
         </div>
       <% else %>
         <div class="last-beers text-left mb-3">
-          <% current_user.beer_tastings.each do |tasting| %>
+          <% current_user.beer_tastings.order(tasting_date: :desc).each do |tasting| %>
             <div>
               <%= link_to user_beer_tasting_path(:user_id, tasting) do %>
                 [<%= tasting.tasting_date.strftime("%d/%m") %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
@@ -29,7 +29,7 @@
       <% end %>
     </div>
     
-    <div class="col-6 text-center">
+    <div class="col-6 text-center px-4">
       <h4 class="mb-4"><i class="fas fa-wine-glass-alt"></i> Vins dégustés : <%= current_user.wine_tastings.count %></h4>
 
       <% if current_user.wine_tastings.count == 0 %>
@@ -39,7 +39,7 @@
         </div>
       <% else %>
         <div class="last-wines text-left mb-3">
-          <% current_user.wine_tastings.each do |tasting| %>
+          <% current_user.wine_tastings.order(tasting_date: :desc).each do |tasting| %>
             <div>
               <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
                 [<%= tasting.tasting_date.strftime("%d/%m") %>] <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
