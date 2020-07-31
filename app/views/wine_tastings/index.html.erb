@@ -1,0 +1,29 @@
+<div class="index-banner mb-4">
+  <%= image_tag "https://ldqm.fr/images/slider/image-3.jpg" %>
+</div>
+
+<h2 class="text-center mb-4"><%= current_user.wine_tastings.count %> vins dégustés</h2>
+
+<table class="mx-auto mb-5">
+  <tr class="text-center">
+    <th class="border px-3 py-2">Date</th>
+    <th class="border px-3 py-2">Nom du vin</th>
+    <th class="border px-3 py-2">Producteur</th>
+    <th class="border px-3 py-2">Note</th>
+  </tr>
+  <% current_user.wine_tastings.order(tasting_date: :desc).each do |tasting| %>
+    <tr>
+      <td class="border px-3 py-1 text-center"><%= tasting.tasting_date.strftime("%d/%m/%Y") %></td>
+      <td class="border px-3 py-1"><%= tasting.name %></td>
+      <td class="border px-3 py-1"><%= tasting.producer %></td>
+      <td class="border px-3 py-1">
+        <% tasting.rating.times do %>
+          <i class="fas fa-star my-auto"></i>
+        <% end %>
+        <% (10 - tasting.rating).times do %>
+          <i class="far fa-star my-auto"></i>
+        <% end %>      
+      </td>
+    </tr>
+  <% end %>
+</table>
