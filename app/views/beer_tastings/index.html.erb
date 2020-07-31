@@ -1,0 +1,29 @@
+<div class="index-banner mb-4">
+  <%= image_tag "https://www.epoquegolden.com/55-plus-community-lifestyle-articles-news/wp-content/uploads/2017/10/Beer-header.jpg" %>
+</div>
+
+<h2 class="text-center mb-4"><%= current_user.beer_tastings.count %> bières dégustées</h2>
+
+<table class="mx-auto mb-5">
+  <tr class="text-center">
+    <th class="border px-3 py-2">Date</th>
+    <th class="border px-3 py-2">Nom de la bière</th>
+    <th class="border px-3 py-2">Brassée par</th>
+    <th class="border px-3 py-2">Note</th>
+  </tr>
+  <% current_user.beer_tastings.order(tasting_date: :desc).each do |tasting| %>
+    <tr>
+      <td class="border px-3 py-1 text-center"><%= tasting.tasting_date.strftime("%d/%m/%Y") %></td>
+      <td class="border px-3 py-1"><%= tasting.name %></td>
+      <td class="border px-3 py-1"><%= tasting.producer %></td>
+      <td class="border px-3 py-1">
+        <% tasting.rating.times do %>
+          <i class="fas fa-star my-auto"></i>
+        <% end %>
+        <% (10 - tasting.rating).times do %>
+          <i class="far fa-star my-auto"></i>
+        <% end %>      
+      </td>
+    </tr>
+  <% end %>
+</table>
