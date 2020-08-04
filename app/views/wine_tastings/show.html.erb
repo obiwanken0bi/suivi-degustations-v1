@@ -1,7 +1,7 @@
 <div class="row my-4 tasting-details mx-auto">
   <div class="photo">
     <%#= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F18%2Fd2%2F35%2F18d235ba3af51b501492de64cd4c35bf.jpg&f=1&nofb=1" %>
-    <%= cl_image_tag @wine_tasting.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @wine_tasting.photo.key, height: 400, crop: :scale %>
   </div>
 
   <div class="tasting-description ml-5">

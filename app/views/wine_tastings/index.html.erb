@@ -4,7 +4,7 @@
 
 <h2 class="text-center mb-4"><%= current_user.wine_tastings.count %> vins dégustés</h2>
 
-<table class="mx-auto mb-5">
+<table class="tastings-list mx-auto mb-5">
   <tr class="text-center">
     <th class="border px-3 py-2">Date</th>
     <th class="border px-3 py-2 m-0">Photo</th>
@@ -15,7 +15,7 @@
   <% current_user.wine_tastings.order(tasting_date: :desc).each do |tasting| %>
     <tr>
       <td class="border px-3 py-1 text-center"><%= tasting.tasting_date.strftime("%d/%m/%Y") %></td>
-      <td class="img-thumbnail border px-3 py-1"><%= cl_image_tag tasting.photo.key, height: 60, width: 60, crop: :fill %></td>
+      <td class="img-thumbnail border px-3 py-1 d-flex justify-content-center"><%= cl_image_tag tasting.photo.key, height: 60, crop: :scale %></td>
       <!--<td class="img-thumbnail border px-3 py-1"><%#= tasting.photo %></td>-->
       <td class="border px-3 py-1"><%= tasting.name %></td>
       <td class="border px-3 py-1"><%= tasting.producer %></td>
