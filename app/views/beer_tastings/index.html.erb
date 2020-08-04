@@ -4,7 +4,7 @@
 
 <h2 class="text-center mb-4"><%= current_user.beer_tastings.count %> bières dégustées</h2>
 
-<table class="mx-auto mb-5">
+<table class="tastings-list mx-auto mb-5">
   <tr class="text-center">
     <th class="border px-3 py-2">Date</th>
     <th class="border px-3 py-2 m-0">Photo</th>
@@ -15,7 +15,7 @@
   <% current_user.beer_tastings.order(tasting_date: :desc).each do |tasting| %>
     <tr>
       <td class="border px-3 py-1 text-center"><%= tasting.tasting_date.strftime("%d/%m/%Y") %></td>
-      <td class="img-thumbnail border px-3 py-1"><%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F18%2Fd2%2F35%2F18d235ba3af51b501492de64cd4c35bf.jpg&f=1&nofb=1" %></td>
+      <td class="img-thumbnail border px-3 py-1 d-flex justify-content-center"><%= cl_image_tag tasting.photo.key, height: 60, crop: :scale %></td>
       <!--<td class="img-thumbnail border px-3 py-1"><%#= tasting.photo %></td>-->
       <td class="border px-3 py-1"><%= tasting.name %></td>
       <td class="border px-3 py-1"><%= tasting.producer %></td>

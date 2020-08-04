@@ -33,6 +33,7 @@
                               html5: true,
                               hint: "(mm/jj/aaaa)",
                               label: "Date de dégustation" %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
     <%= f.input :comment, label: "Commentaire" %>
     <div class="d-flex justify-content-center">

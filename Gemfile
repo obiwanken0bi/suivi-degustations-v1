@@ -35,6 +35,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 # gem 'rails-i18n', '~> 6.0.0'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'cloudinary', '~> 1.12.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
