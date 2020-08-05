@@ -19,7 +19,7 @@
         <% if tasting.photo.attached? %>
           <%= cl_image_tag tasting.photo.key, height: 60, crop: :scale %>
         <% else %>
-          <%= image_tag "beer-icon.png" %>
+          <%= image_tag "beer-icon.svg" %>
         <% end %>
       </td>
       <td class="border px-3 py-1"><%= tasting.name %></td>
