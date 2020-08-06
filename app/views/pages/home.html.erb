@@ -19,7 +19,7 @@
         <div class="last-beers mb-3 d-flex justify-content-center flex-wrap">
           <% current_user.beer_tastings.order(tasting_date: :desc).first(4).each do |tasting| %>
             <%= link_to user_beer_tasting_path(:user_id, tasting) do %>
-              <div class="card-beer border p-3 m-2">
+              <div class="card-tasting border p-3 m-2">
                 <% if tasting.photo.attached? %>
                   <%= cl_image_tag tasting.photo.key, height: 120, crop: :scale %>
                 <% else %>
@@ -41,8 +41,8 @@
       <% end %>
     </div>
     
-    <div class="col-6 text-center px-5">
-      <h4 class="mb-4"><i class="fas fa-wine-glass-alt"></i> Vins dégustés : <%= current_user.wine_tastings.count %></h4>
+    <div class="col-6 text-center px-5 py-3">
+      <h4 class="mb-3"><i class="fas fa-wine-glass-alt"></i> Vins dégustés : <%= current_user.wine_tastings.count %></h4>
 
       <% if current_user.wine_tastings.count == 0 %>
         <div>
@@ -50,16 +50,28 @@
           <%= link_to "Nouveau vin", new_user_wine_tasting_path(:user_id), class:"btn btn-primary" %>
         </div>
       <% else %>
-        <div class="last-wines text-left mb-3">
-          <% current_user.wine_tastings.order(tasting_date: :desc).first(5).each do |tasting| %>
-            <div>
-              <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
-                <%= tasting.producer %> - <%= tasting.name %> (<%= tasting.rating %>/10)
-              <% end %>
-            </div>
+        <div class="last-wines mb-3 d-flex justify-content-center flex-wrap">
+          <% current_user.wine_tastings.order(tasting_date: :desc).first(4).each do |tasting| %>
+            <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
+              <div class="card-tasting border p-3 m-2">
+                <% if tasting.photo.attached? %>
+                  <%= cl_image_tag tasting.photo.key, height: 120, crop: :scale %>
+                <% else %>
+                  <%= image_tag "wine-icon.svg" %>
+                <% end %>
+
+                <h5 class="my-0 mt-2 mb-1 text-truncate"><%= tasting.name %></h5>
+                <p class="mb-2 text-truncate"><%= tasting.producer %></p>
+                <p class="mb-2 text-truncate">
+                  <i class="far fa-clock"></i>
+                  <%= (Date.today - tasting.tasting_date).to_i %> jours
+                </p>
+                <p class="mb-0"><i class="fas fa-star mr-1"></i><%= tasting.rating %>/10</p>
+              </div>
+            <% end %>
           <% end %>
         </div>
-        <%= link_to "Voir la liste complète...", user_wine_tastings_path(:user_id) %>
+        <%= link_to "Voir la liste complète...", user_wine_tastings_path(:user_id), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
