@@ -59,6 +59,12 @@
 }
 
 // Home page
+.last-tastings {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 .card-tasting {
   width: 200px;
   background-color: white;
@@ -66,15 +72,16 @@
   box-shadow: rgba(82, 82, 82, 0.2) 0px 1px 6px 0px;
   color: initial;
 
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.1s;
+  }
+
   img {
   max-width: 120px;
   max-height: 120px;
   object-fit: scale-down;
   border-radius: 4px;
-  }
-
-  &:hover {
-    text-decoration: none;
   }
 }
 
