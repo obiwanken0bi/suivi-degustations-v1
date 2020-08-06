@@ -4,9 +4,9 @@ class BeerTasting < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true,
-                   length: { maximum: 30 }
+                   length: { maximum: 35 }
   validates :producer, presence: true,
-                       length: { maximum: 30 }
+                       length: { maximum: 35 }
   validates :color, presence: true
   validates :family, presence: true,
                      length: { maximum: 30 }
@@ -15,5 +15,5 @@ class BeerTasting < ApplicationRecord
   validates :rating, presence: true,
                      numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
   validates :comment, presence: true,
-                      length: { in: 2..100 }
+                      length: { in: 2..300 }
 end
