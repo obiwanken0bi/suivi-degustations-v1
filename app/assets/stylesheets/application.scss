@@ -12,6 +12,15 @@
 @import "components/index";
 @import "pages/index";
 
+// Global
+.fa-star {
+  color: $gold-yellow;
+}
+
+.tasting-links a {
+  color: black;
+}
+
 .tasting-details .photo img {
   height: 400px;
 }
