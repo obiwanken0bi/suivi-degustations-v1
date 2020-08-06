@@ -18,8 +18,8 @@
       <% else %>
         <div class="last-beers mb-3 d-flex justify-content-center flex-wrap">
           <% current_user.beer_tastings.order(tasting_date: :desc).first(4).each do |tasting| %>
-            <%= link_to user_beer_tasting_path(:user_id, tasting) do %>
-              <div class="card-tasting border p-3 m-2">
+            <%= link_to user_beer_tasting_path(:user_id, tasting), class: "m-2" do %>
+              <div class="card-tasting border p-3">
                 <% if tasting.photo.attached? %>
                   <%= cl_image_tag tasting.photo.key, height: 120, crop: :scale %>
                 <% else %>
@@ -52,8 +52,8 @@
       <% else %>
         <div class="last-wines mb-3 d-flex justify-content-center flex-wrap">
           <% current_user.wine_tastings.order(tasting_date: :desc).first(4).each do |tasting| %>
-            <%= link_to user_wine_tasting_path(:user_id, tasting) do %>
-              <div class="card-tasting border p-3 m-2">
+            <%= link_to user_wine_tasting_path(:user_id, tasting), class: "m-2" do %>
+              <div class="card-tasting border p-3">
                 <% if tasting.photo.attached? %>
                   <%= cl_image_tag tasting.photo.key, height: 120, crop: :scale %>
                 <% else %>
