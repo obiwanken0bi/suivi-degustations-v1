@@ -49,6 +49,26 @@
   margin: 0 !important;
 }
 
+// Home page
+.card-tasting {
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: rgba(82, 82, 82, 0.2) 0px 1px 6px 0px;
+  color: initial;
+
+  img {
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: scale-down;
+  border-radius: 4px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 // Indexes
 .index-banner img {
   width: 100%;
