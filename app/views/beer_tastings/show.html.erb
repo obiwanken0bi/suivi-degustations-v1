@@ -16,7 +16,13 @@
     <p>Malts : <%= @beer_tasting.malts %></p>
     <p>Houblons : <%= @beer_tasting.hops %></p>
     <p>Alcool : <%= @beer_tasting.alcohol %>%</p>
-    <p>Prix : <%= @beer_tasting.price %>€</p>
+    <p>Prix : 
+      <% if @beer_tasting.price.nil? %>
+        0€
+      <% else %>
+        <%= @beer_tasting.price %>€
+      <% end %>
+    </p>
     <p>Dégustation : <%= @beer_tasting.tasting_date.strftime("%d/%m/%Y") %></p>
     <div class="d-flex tasting-rating">
       <h3 class="mb-0 mr-2"><strong>Note :</strong></h3>

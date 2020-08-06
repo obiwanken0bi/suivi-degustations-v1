@@ -23,10 +23,10 @@
     </div>
     <div class="d-flex">
       <div class="col-6 pl-0">
-        <%= f.input :alcohol, label: "Degré d'alcool" %>
+        <%= f.input :alcohol, label: "Degré d'alcool", placeholder: "12.5" %>
       </div>
       <div class="col-6 pr-0">
-        <%= f.input :price, label: "Prix" %>
+        <%= f.input :price, label: "Prix", placeholder: "18.99" %>
       </div>
     </div>
     <%= f.input :tasting_date, as: :date,
@@ -36,7 +36,7 @@
                               label: "Date de dégustation" %>
     <%= f.input :photo, as: :file %>
     <%= f.input :rating, label: "Note sur 10", hint: "(nombre entier)" %>
-    <%= f.input :comment, label: "Commentaire" %>
+    <%= f.input :comment, label: "Commentaire", hint: "max. 300 caractères" %>
     <div class="d-flex justify-content-center">
       <%= f.submit "Ajouter la dégustation", class: "btn btn-primary mb-2" %>
     </div>

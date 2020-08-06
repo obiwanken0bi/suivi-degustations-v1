@@ -16,7 +16,13 @@
     <p>Appellation : <%= @wine_tasting.label %></p>
     <p>Cépages : <%= @wine_tasting.grape_variety %></p>
     <p>Alcool : <%= @wine_tasting.alcohol %>%</p>
-    <p>Prix : <%= @wine_tasting.price %>€</p>
+    <p>Prix : 
+      <% if @wine_tasting.price.nil? %>
+        0€
+      <% else %>
+        <%= @wine_tasting.price %>€
+      <% end %>
+    </p>
     <p>Dégustation : <%= @wine_tasting.tasting_date.strftime("%d/%m/%Y") %></p>
     <div class="d-flex tasting-rating">
       <h3 class="mb-0 mr-2"><strong>Note :</strong></h3>
