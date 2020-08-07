@@ -30,7 +30,13 @@
                 <p class="mb-2 text-truncate"><%= tasting.producer %></p>
                 <p class="mb-2 text-truncate">
                   <i class="far fa-clock"></i>
-                  <%= (Date.today - tasting.tasting_date).to_i %> jours
+                  <% if (Date.today - tasting.tasting_date).to_i == 0 %>
+                    aujourd'hui
+                  <% elsif (Date.today - tasting.tasting_date).to_i == 1 %>
+                    hier
+                  <% else %>
+                    <%= (Date.today - tasting.tasting_date).to_i %> jours
+                  <% end %>
                 </p>
                 <p class="mb-0"><i class="fas fa-star mr-1"></i><%= tasting.rating %>/10</p>
               </div>
@@ -64,7 +70,13 @@
                 <p class="mb-2 text-truncate"><%= tasting.producer %></p>
                 <p class="mb-2 text-truncate">
                   <i class="far fa-clock"></i>
-                  <%= (Date.today - tasting.tasting_date).to_i %> jours
+                  <% if (Date.today - tasting.tasting_date).to_i == 0 %>
+                    aujourd'hui
+                  <% elsif (Date.today - tasting.tasting_date).to_i == 1 %>
+                    hier
+                  <% else %>
+                    <%= (Date.today - tasting.tasting_date).to_i %> jours
+                  <% end %>
                 </p>
                 <p class="mb-0"><i class="fas fa-star mr-1"></i><%= tasting.rating %>/10</p>
               </div>
