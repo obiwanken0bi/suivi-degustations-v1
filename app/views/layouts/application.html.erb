@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SuiviDegustationsV1</title>
+    <title>Beer&Wine Tastings</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,5 +21,9 @@
     <div class="container col-8 d-flex flex-column">
       <%= yield %>
     </div>
+
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
