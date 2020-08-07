@@ -80,7 +80,7 @@
   img {
   max-width: 120px;
   max-height: 120px;
-  object-fit: scale-down;
+  object-fit: contain;
   border-radius: 4px;
   }
 }
@@ -97,12 +97,14 @@
 .img-thumbnail img {
   max-width: 60px;
   max-height: 60px;
-  object-fit: scale-down;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
 // Shows
 .tasting-details .photo img {
   max-width: 400px;
   max-height: 400px;
-  object-fit: scale-down;
+  object-fit: contain;
+  border-radius: 8px;
 }
